@@ -1,0 +1,433 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+  background-color: #f8fafc;
+  color: #1e293b;
+  
+}
+#navbarNav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 16px;
+}
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* Layout Utama Grid 2 Kolom */
+.lms-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+@media (min-width: 992px) {
+  .lms-wrapper {
+    grid-template-columns: 1fr 360px;
+  }
+}
+
+
+/* ================= LEFT COLUMN: PLAYER & INFO ================= */
+.main-content {
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+}
+
+/* Video Frame Container (16:9 Aspect Ratio) */
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 ratio */
+  height: 0;
+  background-color: #000;
+}
+
+.video-loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(15, 23, 42, 0.72);
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  z-index: 1;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.video-wrapper.is-loading .video-loading {
+  opacity: 1;
+  visibility: visible;
+}
+
+.video-wrapper:not(.is-loading) .video-loading {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.video-wrapper video,
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  z-index: 2;
+  background: #000;
+}
+
+.content-details {
+  padding: 24px;
+}
+
+.video-header {
+  margin-bottom: 20px;
+}
+
+.video-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.author-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  color: #64748b;
+}
+
+.badge-channel {
+  background-color: #e2e8f0;
+  color: #334155;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background: #e2e8f0;
+  margin: 20px 0;
+}
+
+/* Info Grid (Jam Live & Media) */
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+@media (min-width: 640px) {
+  .info-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.info-card {
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.info-card h4 {
+  font-size: 14px;
+  color: #475569;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.info-card p {
+  font-size: 15px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.media-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag {
+  background-color: #dbeafe;
+  color: #1e40af;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.description-box h4 {
+  font-size: 16px;
+  margin-bottom: 8px;
+  color: #0f172a;
+}
+
+.description-box p {
+  font-size: 14px;
+  color: #475569;
+  line-height: 1.6;
+}
+
+/* ================= RIGHT COLUMN: SIDEBAR MATERI ================= */
+.sidebar {
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+}
+
+.sidebar-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #f1f5f9;
+}
+
+.playlist-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.playlist-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.playlist-item:hover {
+  background-color: #f1f5f9;
+}
+
+.playlist-item.active {
+  background-color: #eff6ff;
+  border-color: #bfdbfe;
+}
+
+.item-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+
+/* Play Icon Circle */
+.play-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1.5px solid #64748b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #64748b;
+  font-size: 10px;
+}
+
+.playlist-item.active .play-icon {
+  border-color: #2563eb;
+  background-color: #2563eb;
+  color: #ffffff;
+}
+
+.item-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: #334155;
+}
+
+.playlist-item.active .item-title {
+  font-weight: 700;
+  color: #1d4ed8;
+}
+
+/* Checkbox Status Indicator */
+.checkbox-status {
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  color: transparent;
+  background-color: #fff;
+}
+
+.playlist-item.completed .checkbox-status {
+  background-color: #22c55e;
+  border-color: #22c55e;
+  color: #ffffff;
+}
+
+
+
+/* ================= DARK MODE STYLES ================= */
+body.dark-mode {
+  background-color: #0f172a; /* Latar belakang web gelap */
+  color: #f1f5f9;            /* Teks utama terang */
+}
+
+/* Memperbaiki warna kartu konten utama */
+body.dark-mode .main-content {
+  background: #1e293b;
+  border-color: #334155;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* Memperbaiki komponen teks di kolom kiri */
+body.dark-mode .video-title,
+body.dark-mode .info-card p,
+body.dark-mode .description-box h4 {
+  color: #ffffff;
+}
+
+body.dark-mode .author-info,
+body.dark-mode .description-box p {
+  color: #94a3b8;
+}
+
+/* Memperbaiki tampilan Info Card & Badge */
+body.dark-mode .info-card {
+  background: #111827;
+  border-color: #475569;
+}
+
+body.dark-mode .info-card h4 {
+  color: #94a3b8;
+}
+
+body.dark-mode .badge-channel {
+  background-color: #334155;
+  color: #f1f5f9;
+}
+
+body.dark-mode hr {
+  background: #334155;
+}
+
+/* Memperbaiki warna komponen Sidebar */
+body.dark-mode .sidebar {
+  background: #1e293b;
+  border-color: #334155;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .sidebar-title {
+  color: #ffffff;
+  border-bottom-color: #334155;
+}
+
+/* Memperbaiki item di dalam list playlist */
+body.dark-mode .playlist-item:hover {
+  background-color: #334155;
+}
+
+body.dark-mode .playlist-item .item-title {
+  color: #cbd5e1;
+}
+
+body.dark-mode .playlist-item .play-icon {
+  border-color: #475569;
+  color: #475569;
+}
+
+/* Style khusus item aktif di dalam mode gelap */
+body.dark-mode .playlist-item.active {
+  background-color: #1e3a8a;
+  border-color: #2563eb;
+}
+
+body.dark-mode .playlist-item.active .item-title {
+  color: #60a5fa;
+}
+
+
+
+/* ================= SWITCHABLE VIDEO / PODCAST MODE ================= */
+
+/* Ketika kelas audio-only-mode aktif, sembunyikan visual video secara total */
+.video-wrapper.audio-only-mode {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding-bottom: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Tampilan Kotak Podcast Audio */
+.podcast-player-box {
+  background: linear-gradient(135deg, #1e40af, #3b82f6);
+  color: white;
+  padding: 50px 24px;
+  text-align: center;
+  display: none; /* Diatur dinamis lewat JS */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.podcast-cover {
+  width: 110px;
+  height: 110px;
+  background: #0f172a;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 44px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  border: 4px solid rgba(255, 255, 255, 0.2);
+  animation: audioPulse 2s infinite ease-in-out;
+}
+
+@keyframes audioPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.04); }
+  100% { transform: scale(1); }
+}
+
+/* Modifikasi kotak podcast saat Dark Mode aktif */
+body.dark-mode .podcast-player-box {
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+}

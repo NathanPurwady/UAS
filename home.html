@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduSpark - Portal Pembelajaran Digital</title>
+    
+    <!-- TEMPLATE CSS: Framework Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- CUSTOM CSS EKSTERNAL -->
+    <link rel="stylesheet" href="./CSS/home.css">
+</head>
+<body>
+
+    <!-- NAVBAR & LINK -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="home.html">EduSpark 🎓</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <!-- LINK / NAVIGASI -->
+                    <li class="nav-item mb-2"><a class="nav-link active" href="#home">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#pilihan-pembelajaran">Kategori Kursus</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#kurikulumTitle">Materi</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#pendaftaran">Pendaftaran</a></li>
+                </ul>
+                <!-- ELEMEN JAVASCRIPT: Tombol Toggle Mode Gelap -->
+                <button class="btn btn-outline-light ms-3" id="themeToggleBtn" onclick="toggleDarkMode()">🌙 Mode Gelap</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION (HEADING, PARAGRAPH, TEXT FORMATTING) -->
+    <header id="home" class="hero-section text-center mb-5">
+        <div class="container">
+            <!-- HEADING 1 -->
+            <h1 class="display-4 fw-bold">Selamat Datang di EduSpark</h1>
+            <!-- strong, em, u, mark -->
+            <p class="lead mt-3">
+                Platform pembelajaran interaktif berbasis <strong>teknologi web modern</strong>. 
+                Tempat terbaik untuk belajar <em>web development</em>, <u>C++</u>, dan <mark>Python</mark> secara menyenangkan!
+            </p>
+            <a href="#pendaftaran" class="btn btn-light btn-lg mt-3 text-primary fw-bold">Daftar Sekarang</a>
+        </div>
+    </header>
+
+    <div>
+        <audio class="bg-audio" controls autoplay loop src="bg-audio.mp3"></audio>
+    </div>
+
+    <div class="container">
+
+        <!-- SECTION PILIHAN PEMBELAJARAN (TAB) -->
+        <section id="pilihan-pembelajaran" class="py-4 mb-5">
+            <div class="text-center mb-4">
+                <h2 class="fw-bold text-primary">📘 Pilihan Pembelajaran</h2>
+                <p class="text-muted">Pilih jalur belajar yang ingin Anda kuasai hari ini</p>
+            </div>
+
+            <!-- TAB NAVIGASI -->
+            <ul class="nav nav-pills course-tabs justify-content-center mb-4" id="courseTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="web-tab" data-bs-toggle="tab" data-bs-target="#web-content" type="button" role="tab" aria-controls="web-content" aria-selected="true" onclick="updateKurikulum('Pemrograman Web')">
+                        🌐 Pemrograman Web
+                    </button>
+                </li>
+
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="cpp-tab" data-bs-toggle="tab" data-bs-target="#cpp-content" type="button" role="tab" aria-controls="cpp-content" aria-selected="false" onclick="updateKurikulum('Pemrograman C++')">
+                        ⚡ Pemrograman C++
+                    </button>
+                </li>
+    
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="python-tab" data-bs-toggle="tab" data-bs-target="#python-content" type="button" role="tab" aria-controls="python-content" aria-selected="false" onclick="updateKurikulum('Pemrograman Python')">
+                        🐍 Pemrograman Python
+                    </button>
+                </li>
+            </ul>
+
+            <!-- KONTEN TAB -->
+            <div class="tab-content" id="courseTabContent">
+                
+                <!-- TAB 1: PEMROGRAMAN WEB -->
+                <div class="tab-pane fade show active" id="web-content" role="tabpanel" aria-labelledby="web-tab">
+                    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3">
+                        <div class="col">
+                            <div class="card h-100 course-card border-0 shadow-sm" data-page="kelas_html.html">
+                                <div class="card-img-header bg-soft-purple text-center p-3">
+                                    <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=400&auto=format&fit=crop" class="img-fluid rounded-3" alt="HTML CSS">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title fw-bold fs-6">HTML</h5>
+                                    <div class="course-meta small text-secondary mt-3">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card course-card border-0 shadow-sm" data-page="kelas_css.html">
+                                <div class="card-img-header bg-soft-blue text-center p-3">
+                                    <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=400&auto=format&fit=crop" class="img-fluid rounded-3" alt="React JS">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title fw-bold fs-6">CSS</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card course-card border-0 shadow-sm" data-page="kelas_java.html">
+                                <div class="card-img-header bg-soft-green text-center p-3">
+                                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&auto=format&fit=crop" class="img-fluid rounded-3" alt="Backend Node">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title fw-bold fs-6">JavaScript</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB 2: PEMROGRAMAN C++ -->
+                <div class="tab-pane fade" id="cpp-content" role="tabpanel" aria-labelledby="cpp-tab">
+                    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3">
+                        <div class="col">
+                            <div class="card course-card border-0 shadow-sm" data-page="https://www.youtube.com/watch?v=WtBF_-pLrjE&list=PLZS-MHyEIRo4Ze0bbGB1WKBSNMPzi-eWI">
+                                <div class="card-img-header bg-soft-blue text-center p-3">
+                                    <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=400&auto=format&fit=crop" class="img-fluid rounded-3" alt="C++ Dasar">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title fw-bold fs-6">Dasar Algoritma & Pemrograman C++</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card course-card border-0 shadow-sm" data-page="https://www.youtube.com/watch?v=WtBF_-pLrjE&list=PLZS-MHyEIRo4Ze0bbGB1WKBSNMPzi-eWI">
+                                <div class="card-img-header bg-soft-purple text-center p-3">
+                                    <img src="https://images.unsplash.com/photo-1607799279861-4dd421887fb3?w=400&auto=format&fit=crop" class="img-fluid rounded-3" alt="C++ OOP">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title fw-bold fs-6">Object-Oriented Programming (OOP) C++</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card course-card border-0 shadow-sm" data-page="https://www.youtube.com/watch?v=WtBF_-pLrjE&list=PLZS-MHyEIRo4Ze0bbGB1WKBSNMPzi-eWI">
+                                <div class="card-img-header bg-soft-green text-center p-3">
+                                    <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=400&auto=format&fit=crop" class="img-fluid rounded-3" alt="Struktur Data">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title fw-bold fs-6">Struktur Data & Algoritma Lanjut C++</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB 3: PEMROGRAMAN PYTHON -->
+                <div class="tab-pane fade" id="python-content" role="tabpanel" aria-labelledby="python-tab">
+                    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-2">
+                        <div class="col">
+                            <div class="card course-card border-0 shadow-sm" data-page="https://www.youtube.com/watch?v=iA8lLwmtKQM&list=PLZS-MHyEIRo59lUBwU-XHH7Ymmb04ffOY">
+                                <div class="card-img-header bg-soft-orange text-center p-3">
+                                    <img src="https://images.unsplash.com/photo-1526379095098-d400fd0bf935?w=400&auto=format&fit=crop" class="img-fluid rounded-3" alt="Python Dasar">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title fw-bold fs-6">Python Pemula: Dari Nol sampai Mahir</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card course-card border-0 shadow-sm" data-page="https://www.youtube.com/watch?v=iA8lLwmtKQM&list=PLZS-MHyEIRo59lUBwU-XHH7Ymmb04ffOY">
+                                <div class="card-img-header bg-soft-blue text-center p-3">
+                                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&auto=format&fit=crop" class="img-fluid rounded-3" alt="Data Science Python">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title fw-bold fs-6">Python untuk Data Science & Analytics</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION MATERI (IMAGE & LIST) -->
+        <h3 id="kurikulumTitle">Materi yang Akan Dipelajari:</h3>
+            <ul id="materiListContainer">
+                <!-- Isi awal sebelum diklik -->
+                <li><strong>HTML5 & CSS3:</strong> Struktur dasar halaman web, layouting, & Bootstrap.</li>
+                <li><strong>JavaScript:</strong> Interaktivitas, manipulasi DOM, dan event handling.</li>
+                <li><strong>Pemrograman C++ & Python:</strong> Logika algoritma, OOP, dan analisis data.</li>
+            </ul>
+
+            <h4>Langkah Belajar EduSpark:</h4>
+            <ol id="langkahListContainer">
+                <li>Pendaftaran akun pengguna.</li>
+                <li>Mengakses modul & video instruksional.</li>
+                <li>Mengerjakan latihan harian & projek akhir.</li>
+            </ol>
+
+
+
+        <!-- SECTION PENDAFTARAN (FORM) -->
+        <section id="pendaftaran" class="mb-5">
+            <h2 class="border-bottom pb-2 text-primary">📝 Formulir Pendaftaran</h2>
+            <div class="card p-4 shadow-sm mt-3">
+                <!-- FORM -->
+                <form id="registrationForm" onsubmit="handleFormSubmit(event)">
+                    <div class="mb-3">
+                        <label for="fullName" class="form-label">Nama Lengkap:</label>
+                        <input type="text" class="form-control" id="fullName" placeholder="Masukkan nama Anda" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="emailInput" class="form-label">Alamat Email:</label>
+                        <input type="email" class="form-control" id="emailInput" placeholder="nama@email.com" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="courseSelect" class="form-label">Pilih Kelas:</label>
+                        <select class="form-select" id="courseSelect" required>
+                            <option value="" selected disabled>-- Pilih Kursus --</option>
+                            <option value="Pemrograman Web (HTML, CSS, JS)">HTML, CSS, JS</option>
+                            <option value="Pemrograman C++">Pemrograman C++</option>
+                            <option value="Pemrograman Python">Pemrograman Python</option>
+                        </select>
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="termsCheck" required>
+                        <label class="form-check-label" for="termsCheck">Saya menyetujui syarat & ketentuan.</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Kirim Pendaftaran</button>
+                </form>
+
+                <!-- WADAH OUTPUT ALERT JAVASCRIPT -->
+                <div id="alertContainer" class="mt-3"></div>
+            </div>
+        </section>
+
+    </div>
+
+
+
+    <!-- FOOTER -->
+    <footer class="bg-dark text-white text-center py-3 mt-5">
+        <p class="mb-0">&copy; 2026 EduSpark - Portal Pembelajaran Digital. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <!-- JS Bootstrap Bundle CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="./JS/home.js"></script>
+</body>
+</html>

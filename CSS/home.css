@@ -1,0 +1,128 @@
+/* Custom CSS - EduSpark */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+    transition: background-color 0.3s, color 0.3s;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.nav-link {
+    transition: color 0.3s, background-color 0.3s;
+}
+
+/* Style untuk Mode Gelap (Dark Mode) */
+.dark-mode {
+    background-color: #121212 !important;
+    color: #ffffff !important;
+}
+
+.dark-mode .card, 
+.dark-mode .table, 
+.dark-mode footer {
+    background-color: #1e1e1e !important;
+    color: #ffffff !important;
+}
+
+.dark-mode .table-striped>tbody>tr:nth-of-type(odd)>* {
+    color: #ffffff;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, #0d6efd, #0dcaf0);
+    color: white;
+    padding: 60px 0;
+    border-radius: 0 0 20px 20px;
+}
+
+/* Styling Tab Navigasi Kapsul */
+.course-tabs .nav-link {
+    color: #495057;
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 50px;
+    padding: 10px 24px;
+    font-weight: 600;
+    margin: 0 5px;
+    transition: all 0.3s ease;
+}
+
+.course-tabs .nav-link.active,
+.course-tabs .nav-link:hover {
+    background-color: #0d6efd;
+    color: #ffffff;
+    border-color: #0d6efd;
+    box-shadow: 0 4px 12px rgba(13, 110, 253, 0.25);
+}
+
+/* Styling Kartu Kursus (Course Card) */
+.course-card {
+    border-radius: 16px !important;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #ffffff;
+
+}
+
+.course-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Background Soft Pastel untuk Area Header Gambar */
+.card-img-header {
+    border-radius: 12px;
+    margin: 12px;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-img-header img {
+    max-height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.bg-soft-purple { background-color: #f0eafc; }
+.bg-soft-blue   { background-color: #e6f0ff; }
+.bg-soft-green  { background-color: #e6f7ed; }
+.bg-soft-orange { background-color: #fff2e6; }
+
+/* Kustomisasi Mode Gelap untuk Tab & Card */
+.dark-mode .course-card {
+    background-color: #1e1e1e !important;
+    color: #ffffff !important;
+}
+
+.dark-mode .course-tabs .nav-link {
+    background-color: #2a2a2a;
+    color: #cccccc;
+    border-color: #333333;
+}
+
+.dark-mode .course-tabs .nav-link:hover,
+.dark-mode .course-tabs .nav-link.active {
+    background-color: #0d6efd;
+    color: #ffffff;
+}
+
+.dark-mode .course-meta {
+    color: #b0b0b0 !important;
+}
+
+.bg-audio {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    width: 250px;
+    height: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
